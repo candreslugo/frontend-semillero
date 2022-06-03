@@ -1,0 +1,100 @@
+<br />
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="cabeceraform">
+        <h2>Calculadora de horas trabajadas</h2>
+      </div>
+      <br />
+
+      <div class="form">
+        <form [formGroup]="form" (ngSubmit)="enviar()">
+          <div class="col mb-3">
+            <label for="Technical" class="form-label labelTecnico"
+              >Filtrar por</label
+            >
+            <div class="d-flex col-12">
+              <div class="form-check rbtn">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="typeFilter"
+                  id="typeFilter1"
+                  value="Technical"
+                  checked
+                />
+                <label class="form-check-label" for="typeFilter1">
+                  Técnico
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="typeFilter"
+                  id="typeFilter2"
+                  value="Request"
+                />
+        
+
+          <div class="mb-3">
+            <label for="idTecnico" class="form-label labelTecnico">{{
+              form.value.typeFilter == "Technical"
+                ? "Identificación del Tecnico"
+                : "ID del servicio"
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              id="idTecnico"
+              formControlName="identification"
+              [placeholder]="
+                form.value.typeFilter == 'Technical'
+                  ? 'ingresas la identificación'
+                  : 'ingresar el ID del servicio'
+              "
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Seleccionar semana</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input
+                  matStartDate
+                  placeholder="Start date"
+                  formControlName="startDate"
+                />
+                <input
+                  matEndDate
+                  placeholder="End date"
+                  formControlName="endDate"
+                />
+              </mat-date-range-input>
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+          <button type="button" class="btn btn-danger m-2" (click)="resetAll()">
+            Resetear
+          </button>
+          <button type="submit" class="btn btn-info" [disabled]="form.invalid">
+            Calcular
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col">
+      <app-result-view
+        [showResult]="showResult"
+        [person]="person"
+        [resultCalculate]="resultCalculate"
+        [totalHours]="totalHours"
+      ></app-result-view>
+    </div>
+  </div>
+</div>

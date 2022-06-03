@@ -1,0 +1,44 @@
+
+
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="cabeceraform">
+          <h2>Registro de horas trabajadas</h2>
+        </div>
+        <br>
+
+        <div class="form">
+
+          <form [formGroup]="form" (ngSubmit)="enviar()" >
+            <div class="mb-3">
+              <label for="idTecnico" class="form-label labelTecnico" >Identificacion del Tecnico</label>
+              <input type="text" class="form-control" id="idTecnico"  formControlName="idTecnico" required>
+            </div>
+            <div class="mb-3">
+              <label for="idServicio" class="form-label labelServicio">ID del Servicio</label>
+              <input type="text" class="form-control" id="idServicio" formControlName="idServicio"  required >
+            </div>
+            <div class="mb-3">
+              <label for="fechaI"  class="form-label labelFechaInicio">Fecha Inicio</label>
+              <input type="datetime-local" [min]="minDate" [max]="maxDate"  (change)="onChange()"  class="form-control"  formControlName="fechaI"  id="fechaI" required >
+            </div>
+            <div class="mb-3">
+              <label for="fechaF" class="form-label labelFechaFin">Fecha Fin</label>
+              <input type="datetime-local"  [min]="form.value.fechaI" [max]="maxDate"   class="form-control" id="fechaF" formControlName="fechaF"  required>
+
+               </div>
+
+            <button type="submit" class="btn btn-info" [disabled]="form.invalid" >Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="col">
+        <img [src]="myImage" alt="" srcset="">
+      </div>
+    </div>
+  </div>
+  
+

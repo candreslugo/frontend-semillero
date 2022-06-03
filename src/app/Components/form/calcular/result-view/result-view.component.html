@@ -1,0 +1,102 @@
+<img [src]="myImage" alt="" *ngIf="!showResult; else elseBlock" />
+<ng-template #elseBlock>
+  <div class="cabeceraform">
+    <h2>Total de horas trabajadas</h2>
+  </div>
+  <br />
+
+  <div class="form">
+    <form>
+      <div *ngIf="person.id">
+        <h3><strong>Técnico</strong></h3>
+        <p>
+          <strong>Identificacion: </strong>
+          <span>{{ person.document }}</span>
+        </p>
+        <p>
+          <strong>Nombre completo: </strong>
+          <span>{{ person.fullName }}</span>
+        </p>
+      </div>
+      <hr />
+      <p>
+        <strong>Total de horas: </strong> <span>{{ totalHours }}</span>
+      </p>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Normales</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.normal"
+            [disabled]="true"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Normales Extras</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.normalExtras"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Nocturnas</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.nocturnal"
+            [disabled]="true"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Nocturnas Extras</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.nightExtras"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Dominucales</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.Sundays"
+            [disabled]="true"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="idTecnico" class="form-label labelTecnico"
+            >Dominucales Extras</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [value]="resultCalculate.sundayExtras"
+            [disabled]="true"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

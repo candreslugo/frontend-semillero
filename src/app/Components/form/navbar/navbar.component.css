@@ -1,0 +1,45 @@
+body{
+
+  margin: 10px;
+}
+nav{
+  background-color: black;
+  border-radius: 5px;
+}
+h2{
+color: rgb(253, 253, 253);
+font-size: 25px;
+margin-top: 8px;
+
+}
+.cabeceraform{
+
+  width: 550px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+h5{
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.form{
+  background-color: rgb(255, 255, 255);
+  width: 550px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}
+form{
+  padding: 30px;
+}
+
+.active__link{
+  color: #0DCAF0 !important;
+}
+
+.navbar_2{
+  border-radius: 0px;
+}
+
